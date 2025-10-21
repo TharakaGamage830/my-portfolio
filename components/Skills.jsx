@@ -24,7 +24,7 @@ const Skills = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: groupIndex * 0.1 }}
+                transition={{ delay: -150 }}
                 whileHover={{ y: -5 }}
                 className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-xl border border-slate-700 hover:border-cyan-400/50 transition-all duration-300"
               >
@@ -47,7 +47,7 @@ const Skills = () => {
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.level}%` }}
                           viewport={{ once: true }}
-                          transition={{ duration: 1, delay: groupIndex * 0.1 + skillIndex * 0.1 }}
+                          transition={{ duration: 1, delay:  -150 }}
                           className="bg-gradient-to-r from-cyan-400 to-blue-500 h-full rounded-full"
                         />
                       </div>

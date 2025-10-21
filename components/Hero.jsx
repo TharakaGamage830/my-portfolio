@@ -250,94 +250,119 @@ const Hero = () => {
 
       <motion.div
         style={{ opacity }}
-        className="text-center z-10 px-4"
+        className="text-center z-10 px-4 max-w-4xl mx-auto w-full"
       >
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          whileHover={{ 
-            scale: 1.05,
-            textShadow: "0 0 20px rgba(255, 215, 0, 0.8)",
-            color: "#FFD700"
-          }}
-          transition={{ duration: 0.3 }}
-          className="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg cursor-pointer"
+        {/* Terminal-style card background */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="relative bg-slate-900/40 backdrop-blur-md border border-cyan-500/30 rounded-2xl p-8 md:p-12 shadow-2xl"
         >
-          Tharaka Gamage
-        </motion.h1>
+          {/* Terminal header */}
+          <div className="absolute top-0 left-0 right-0 h-8 bg-slate-800/50 rounded-t-2xl flex items-center px-4 gap-2 border-b border-cyan-500/30">
+            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            <span className="ml-4 text-xs text-cyan-400/70 font-mono">~/portfolio/tharaka-gamage.jsx</span>
+          </div>
+          
+          {/* Corner decorations */}
+          <div className="absolute top-8 left-0 w-16 h-16 border-l-2 border-t-2 border-cyan-500/50 rounded-tl-lg"></div>
+          <div className="absolute top-8 right-0 w-16 h-16 border-r-2 border-t-2 border-cyan-500/50 rounded-tr-lg"></div>
+          <div className="absolute bottom-0 left-0 w-16 h-16 border-l-2 border-b-2 border-cyan-500/50 rounded-bl-lg"></div>
+          <div className="absolute bottom-0 right-0 w-16 h-16 border-r-2 border-b-2 border-cyan-500/50 rounded-br-lg"></div>
+
+          <div className="mt-6">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{ 
+                scale: 1.05,
+                textShadow: "0 0 20px rgba(255, 215, 0, 0.8)",
+                color: "#FFD700"
+              }}
+              transition={{ duration: 0.3 }}
+              className="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg cursor-pointer"
+            >
+              Tharaka Gamage
+            </motion.h1>
+            
+            <div className="h-12 mb-8">
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="text-2xl md:text-3xl text-cyan-400 drop-shadow-lg"
+              >
+                {displayText}
+                <span className="animate-pulse">|</span>
+              </motion.p>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="flex flex-wrap justify-center gap-4 mb-8"
+            >
+              <motion.a
+                whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(6, 182, 212, 0.6)" }}
+                whileTap={{ scale: 0.95 }}
+                href="#projects"
+                className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 rounded-lg font-semibold transition-colors shadow-lg"
+              >
+                View Projects
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(100, 116, 139, 0.6)" }}
+                whileTap={{ scale: 0.95 }}
+                href="#contact"
+                className="px-8 py-3 bg-slate-700 hover:bg-slate-600 rounded-lg font-semibold transition-colors shadow-lg"
+              >
+                Contact Me
+              </motion.a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.9 }}
+              className="flex justify-center gap-6"
+            >
+              <motion.a 
+                whileHover={{ scale: 1.2, rotate: 360 }} 
+                transition={{ duration: 0.3 }} 
+                href="https://github.com/TharakaGamage830" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="drop-shadow-lg"
+              >
+                <Github className="w-6 h-6" />
+              </motion.a>
+              <motion.a 
+                whileHover={{ scale: 1.2, rotate: 360 }} 
+                transition={{ duration: 0.3 }} 
+                href="https://www.linkedin.com/in/tharakagamage71" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="drop-shadow-lg"
+              >
+                <Linkedin className="w-6 h-6" />
+              </motion.a>
+              <motion.a 
+                whileHover={{ scale: 1.2, rotate: 360 }} 
+                transition={{ duration: 0.3 }} 
+                href="mailto:tharakaashen830@gmail.com"
+                className="drop-shadow-lg"
+              >
+                <Mail className="w-6 h-6" />
+              </motion.a>
+            </motion.div>
+          </div>
+        </motion.div>
+        {/* End of terminal card */}
         
-        <div className="h-12 mb-8">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-2xl md:text-3xl text-cyan-400 drop-shadow-lg"
-          >
-            {displayText}
-            <span className="animate-pulse">|</span>
-          </motion.p>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="flex flex-wrap justify-center gap-4 mb-8"
-        >
-          <motion.a
-            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(6, 182, 212, 0.6)" }}
-            whileTap={{ scale: 0.95 }}
-            href="#projects"
-            className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 rounded-lg font-semibold transition-colors shadow-lg"
-          >
-            View Projects
-          </motion.a>
-          <motion.a
-            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(100, 116, 139, 0.6)" }}
-            whileTap={{ scale: 0.95 }}
-            href="#contact"
-            className="px-8 py-3 bg-slate-700 hover:bg-slate-600 rounded-lg font-semibold transition-colors shadow-lg"
-          >
-            Contact Me
-          </motion.a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.9 }}
-          className="flex justify-center gap-6"
-        >
-          <motion.a 
-            whileHover={{ scale: 1.2, rotate: 360 }} 
-            transition={{ duration: 0.3 }} 
-            href="https://github.com/TharakaGamage830" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="drop-shadow-lg"
-          >
-            <Github className="w-6 h-6" />
-          </motion.a>
-          <motion.a 
-            whileHover={{ scale: 1.2, rotate: 360 }} 
-            transition={{ duration: 0.3 }} 
-            href="https://www.linkedin.com/in/tharakagamage71" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="drop-shadow-lg"
-          >
-            <Linkedin className="w-6 h-6" />
-          </motion.a>
-          <motion.a 
-            whileHover={{ scale: 1.2, rotate: 360 }} 
-            transition={{ duration: 0.3 }} 
-            href="mailto:tharakaashen830@gmail.com"
-            className="drop-shadow-lg"
-          >
-            <Mail className="w-6 h-6" />
-          </motion.a>
-        </motion.div>
-
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
