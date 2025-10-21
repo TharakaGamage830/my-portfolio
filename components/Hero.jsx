@@ -11,9 +11,15 @@ const Hero = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [spaceshipTrail, setSpaceshipTrail] = useState([]);
   const [imageOpacity, setImageOpacity] = useState(0.5);
+  const [isMounted, setIsMounted] = useState(false);
   
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+
+  // Fix hydration by only rendering random elements after mount
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Typing animation
   useEffect(() => {
@@ -40,8 +46,10 @@ const Hero = () => {
 
   // Mouse tracking and spaceship trail
   useEffect(() => {
+    let trailCounter = 0;
+    
     const handleMouseMove = (e) => {
-      const newPos = { x: e.clientX, y: e.clientY, id: Date.now() };
+      const newPos = { x: e.clientX, y: e.clientY, id: `${Date.now()}-${trailCounter++}` };
       setMousePos(newPos);
       
       setSpaceshipTrail(prev => {
@@ -66,7 +74,10 @@ const Hero = () => {
     
     // Clear old trail points
     const interval = setInterval(() => {
-      setSpaceshipTrail(prev => prev.filter(point => Date.now() - point.id < 1000));
+      setSpaceshipTrail(prev => prev.filter(point => {
+        const timestamp = parseInt(point.id.split('-')[0]);
+        return Date.now() - timestamp < 1000;
+      }));
     }, 100);
 
     return () => {
@@ -128,7 +139,7 @@ const Hero = () => {
         </div>
 
         {/* Floating binary code */}
-        {[...Array(20)].map((_, i) => (
+        {isMounted && [...Array(20)].map((_, i) => (
           <motion.div
             key={`binary-${i}`}
             className="absolute text-blue-400/20 font-mono font-bold"
@@ -199,7 +210,8 @@ const Hero = () => {
         {/* Spaceship trail (smoke effect) */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none">
           {spaceshipTrail.map((point, i) => {
-            const age = Date.now() - point.id;
+            const timestamp = parseInt(point.id.split('-')[0]);
+            const age = Date.now() - timestamp;
             const opacity = Math.max(0, 1 - age / 1000);
             const size = 4 - (i / spaceshipTrail.length) * 3;
             
@@ -264,7 +276,7 @@ const Hero = () => {
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            <span className="ml-4 text-xs text-cyan-400/70 font-mono">~/portfolio/tharaka-gamage.jsx</span>
+            <span className="ml-4 text-xs text-cyan-400/70 font-mono">~/portfolio/hero.jsx</span>
           </div>
           
           {/* Corner decorations */}
