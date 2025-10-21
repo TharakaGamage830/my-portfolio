@@ -50,6 +50,6 @@ export const projects = [
       'Customizable UI themes'
     ],
     role: 'Developer',
-    github: 'https://github.com/TharakaGamage830'
+    github: 'https://github.com/TharakaGamage830/WildNet.git'
   }
 ];
