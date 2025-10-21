@@ -4,7 +4,7 @@ import { GraduationCap, Briefcase, Code2, Database } from 'lucide-react';
 
 const About = () => {
   const stats = [
-    { icon: <GraduationCap className="w-6 h-6" />, label: 'Computer Science Student', value: '2022 - Present' },
+    { icon: <GraduationCap className="w-6 h-6" />, label: 'Computer Science Student', value: '2022 - 2025' },
     { icon: <Briefcase className="w-6 h-6" />, label: 'Projects Completed', value: '4+' },
     { icon: <Code2 className="w-6 h-6" />, label: 'Technologies', value: '15+' },
     { icon: <Database className="w-6 h-6" />, label: 'Focus', value: 'Full Stack Dev' }
@@ -33,7 +33,7 @@ const About = () => {
             <div className="relative w-80 h-80 mx-auto">
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur-2xl opacity-30"></div>
               <img
-                src="/images/profile-photo.jpg"
+                src="/images/profile-photo.png"
                 alt="Tharaka Gamage"
                 className="relative w-full h-full object-cover rounded-full border-4 border-cyan-400/50"
               />

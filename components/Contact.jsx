@@ -1,6 +1,6 @@
 "use client";
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin } from 'lucide-react';
+import { Mail, Github, Linkedin, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
   const handleSubmit = (e) => {
@@ -52,7 +52,7 @@ const Contact = () => {
                 className="flex items-center gap-3 text-gray-300"
               >
                 <span className="w-5 h-5">📱</span>
-                <span>+94 78 327 1738</span>
+                <span>0783271738</span>
               </motion.div>
               
               <motion.div
@@ -84,6 +84,16 @@ const Contact = () => {
                 className="w-12 h-12 bg-slate-800 hover:bg-slate-700 rounded-full flex items-center justify-center transition-colors"
               >
                 <Linkedin className="w-6 h-6" />
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                transition={{ duration: 0.3 }}
+                href="https://wa.me/94770674995?text=Hi%20Tharaka%20Gamage!"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-slate-800 hover:bg-slate-700 rounded-full flex items-center justify-center transition-colors"
+              >
+                <MessageCircle className="w-6 h-6" />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.2, rotate: 360 }}

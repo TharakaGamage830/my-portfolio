@@ -18,9 +18,16 @@ const Navigation = ({ activeSection, setActiveSection }) => {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+            className="flex items-center gap-3"
           >
-            TG
+            <img 
+              src="/images/logo.png" 
+              alt="Logo" 
+              className="h-10 w-10 object-contain"
+            />
+            <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              TG
+            </span>
           </motion.div>
 
           {/* Desktop Menu */}

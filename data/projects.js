@@ -10,7 +10,7 @@ export const projects = [
       'Automated WhatsApp notifications'
     ],
     role: 'Team Member (Agile Development)',
-    github: 'https://github.com/TharakaGamage830'
+    github: 'https://github.com/TharakaGamage830/MOSAD.git'
   },
   {
     title: 'BloodConnect',
@@ -23,8 +23,8 @@ export const projects = [
       'Real-time request handling'
     ],
     role: 'Solo Developer',
-    github: 'https://github.com/TharakaGamage830',
-    live: '#'
+    github: 'https://github.com/TharakaGamage830/BloodConnect.git',
+    live: 'https://blood-connect-self.vercel.app/'
   },
   {
     title: 'SafePath Observers',
@@ -37,7 +37,7 @@ export const projects = [
       'PDF report generation'
     ],
     role: 'Team Leader & Developer',
-    github: 'https://github.com/TharakaGamage830'
+    github: 'https://github.com/TharakaGamage830/safepath-observer.git'
   },
   {
     title: 'WildNet',
